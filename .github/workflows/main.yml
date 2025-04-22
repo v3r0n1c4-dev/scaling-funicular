@@ -1,0 +1,27 @@
+name: Download and Commit File to Repo
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  download_and_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Download File
+        run: |
+          curl -O https://alinallmovies.tbnbotsnetwork.workers.dev/26220/mike+lu+%26+og+213+the+three+amigas+-+sleeping+ugly+%5Bant%5D.mp4?hash=AgADXx
+          
+      - name: Commit File to Repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Add downloaded file from URL"
+          git push
