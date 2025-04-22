@@ -1,0 +1,20 @@
+name: Download File from URL
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  download_file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Download File
+        run: |
+          curl -O https://alinallmovies.tbnbotsnetwork.workers.dev/26218/Jay+Rox+-+Ma+Shocko.mp3?hash=AgADU1
+          
+      - name: List Files
+        run: ls -l
