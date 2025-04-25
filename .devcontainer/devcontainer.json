@@ -1,0 +1,14 @@
+{
+  "name": "My Codespace",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "dbaeumer.vscode-eslint"
+  ],
+  "forwardPorts": [3000]
+}
